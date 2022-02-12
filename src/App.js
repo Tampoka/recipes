@@ -1,10 +1,11 @@
 import './App.css';
 import Menu from './components/Menu';
+import data from "./data/recipes.json";
 
 function App() {
   return (
     <div className="App">
-      <Menu/>
+      <Menu recipes={data}/>
     </div>
   );
 }
