@@ -5,11 +5,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-export const ColorContext = createContext();
+export const ColorContext = createContext(colors); //need defaultValue -> Child outside Provider will get "Default Value"
 
 ReactDOM.render(
     <React.StrictMode>
-        <ColorContext.Provider value={{colors}}>
+        {/*passing initialValue -> Child inside Provider will get "Initial Value"*/}
+        <ColorContext.Provider value={colors}>
             <App/>
         </ColorContext.Provider>,
     </React.StrictMode>,
