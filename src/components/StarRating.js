@@ -3,10 +3,10 @@ import {Star} from './Star';
 
 const createArray = length => [...Array(length)]
 
-export default function StarRating({totalStars = 5}) {
+export default function StarRating({style={},totalStars = 5,...props}) {
     const [selectedStars, setSelectedStars] = useState(3)
     return (
-        <>
+        <div style={{padding:"5px",...style}} {...props}>
             {createArray(totalStars).map((n, i) => (
                 <Star
                     key={i}
@@ -16,6 +16,6 @@ export default function StarRating({totalStars = 5}) {
             <p>
                 {selectedStars} of {totalStars} stars
             </p>
-        </>
+        </div>
     )
 }
