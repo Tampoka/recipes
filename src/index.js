@@ -1,18 +1,15 @@
-import React, {createContext} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import colors from "./data/color-data.json";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-export const ColorContext = createContext(colors); //need defaultValue -> Child outside Provider will get "Default Value"
+import ColorProvider from './components/color-hooks';
 
 ReactDOM.render(
     <React.StrictMode>
-        {/*passing initialValue -> Child inside Provider will get "Initial Value"*/}
-        <ColorContext.Provider value={colors}>
+        <ColorProvider>
             <App/>
-        </ColorContext.Provider>,
+        </ColorProvider>,
     </React.StrictMode>,
     document.getElementById('root')
 );
