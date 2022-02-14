@@ -1,6 +1,6 @@
 import React from "react";
 import {useInput} from '../customHooks/useInput';
-import {useColors} from './color-hooks';
+import {useColors} from '../customHooks/color-hooks';
 
 export default function AddColorForm() {
     const [titleProps, resetTitle] = useInput('')

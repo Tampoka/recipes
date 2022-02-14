@@ -1,12 +1,19 @@
 import './App.css';
-import ColorList from './components/ColorsList';
-import AddColorForm from './components/AddColorForm';
+import Rerender from './components/Rerender';
+import TypingPhrase from './components/TypingPhrase';
+import Layout from './components/Layout';
+import Resizing from './components/Resizing';
 
 function App() {
     return (
         <div className="App">
-            <AddColorForm/>
-            <ColorList/>
+            {/*<Rerender>*/}
+            {/*    You are not going to believe this but...*/}
+            {/*</Rerender>*/}
+            {/*<Layout/>*/}
+            <Resizing/>
+            {/*<AddColorForm/>*/}
+            {/*<ColorList/>*/}
         </div>
     )
 }
