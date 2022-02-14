@@ -7,10 +7,13 @@ const Resizing = () => {
 
     useEffect(() => {
         width < 100 ? setColor('green') : setColor('red')
-
         console.log(width)
-        console.log('changing size, color')
+        console.log('changing size')
     }, [height, width])
+
+    useEffect(()=>{
+        console.log('changing color')
+    },[color])
 
     return (
         <div>
