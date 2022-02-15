@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useWindowSize} from '../customHooks/useWindowSize';
+import {useWindowSize} from '../../customHooks/useWindowSize';
 
 const Resizing = () => {
     const [width, height] = useWindowSize()

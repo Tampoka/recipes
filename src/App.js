@@ -1,5 +1,5 @@
 import './App.css';
-import RepoMenu from './components/RepoMenu';
+import RepoMenu from './components/MultipleRequests/RepoMenu';
 
 function App() {
     return (

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useIterator} from '../customHooks/useIterator';
+import {useIterator} from '../../customHooks/useIterator';
 
 const RepoMenu = ({repositories, onSelect = f => f}) => {
     const [{name}, previous, next] = useIterator(repositories)

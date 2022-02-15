@@ -1,6 +1,6 @@
 import React from 'react';
 import faker from '@faker-js/faker';
-import List from './List';
+import List from '../RenderProps/List';
 
 
 const bigList = [...Array(5000)].map(() => ({

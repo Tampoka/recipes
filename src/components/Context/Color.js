@@ -1,7 +1,7 @@
-import StarRating from './StarRating';
+import StarRating from '../Basics/StarRating';
 import {FaTrash} from "react-icons/fa";
-import {useColors} from '../customHooks/color-hooks';
-import Checkbox from './Checkbox';
+import {useColors} from '../../customHooks/color-hooks';
+import Checkbox from '../UseReducer/Checkbox';
 
 export default function Color({id, title, color, rating}) {
     const {rateColor, removeColor} = useColors()
