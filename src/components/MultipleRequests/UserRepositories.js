@@ -13,7 +13,7 @@ const UserRepositories = ({login, selectedRepo, onSelect = f => f}) => {
                     onSelect={onSelect}
                 />
             )}
-        </>
+        />
     );
 };
 

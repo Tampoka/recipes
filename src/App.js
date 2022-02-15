@@ -1,10 +1,12 @@
 import './App.css';
-import RepoMenu from './components/MultipleRequests/RepoMenu';
+import UserRepositories from './components/MultipleRequests/UserRepositories';
+import DetailedUser from './components/MultipleRequests/DetailedUser';
+import UserWithFetch from './components/FetchingUser/UserWithFetch';
 
 function App() {
     return (
         <div className="App">
-            <RepoMenu/>
+            <UserWithFetch login={"eveporcello"}/>
         </div>
     )
 }

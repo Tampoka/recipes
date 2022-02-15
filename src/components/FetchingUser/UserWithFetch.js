@@ -1,11 +1,13 @@
 import React from "react";
 import Fetch from "./Fetch";
+import DetailedUser from '../MultipleRequests/DetailedUser';
 
 function UserWithFetch({login}) {
     return (
         <Fetch
             uri={`https://api.github.com/users/${login}`}
-            renderSuccess={UserDetails}/>
+            // renderSuccess={UserDetails}/>
+            renderSuccess={DetailedUser}/>
     )
 }
 
