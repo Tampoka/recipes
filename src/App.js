@@ -1,19 +1,26 @@
 import './App.css';
-import Rerender from './components/Rerender';
-import TypingPhrase from './components/TypingPhrase';
-import Layout from './components/Layout';
-import Resizing from './components/Resizing';
+import Cats from './components/Cats';
+import User from './components/User';
+import Checkbox from './components/Checkbox';
+import Fetching from './components/Fetching';
+import GitHubUser from './components/GitHubUser';
+import LocalStorage from './components/LocalStorage';
+import RequestErrorHandling from './components/RequestErrorHandling';
+import RenderingProps from './components/RenderingProps';
+import FakerList from './components/FakerList';
+import ReactWindowList from './components/ReactWindowList';
 
 function App() {
     return (
         <div className="App">
-            {/*<Rerender>*/}
-            {/*    You are not going to believe this but...*/}
-            {/*</Rerender>*/}
-            {/*<Layout/>*/}
-            <Resizing/>
-            {/*<AddColorForm/>*/}
-            {/*<ColorList/>*/}
+            <GitHubUser login="Tampoka" />
+            {/*<RequestErrorHandling login={"moonhighway"}/>*/}
+            {/*<RenderingProps/>*/}
+            {/*<FakerList/>*/}
+            {/*<ReactWindowList/>*/}
+         {/*<Fetching/>*/}
+          {/*  <Checkbox/>*/}
+          {/*  <Cats/>*/}
         </div>
     )
 }
