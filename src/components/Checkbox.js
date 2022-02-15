@@ -23,8 +23,7 @@ export default function Checkbox() {
             <input
                 type="checkbox"
                 value={checked}
-                onChange={setChecked}
-            />
+                onChange={setChecked}/>
             {checked ? "checked" : "not checked"}
             <hr/>
             <h1 onClick={() => setNumber(30)}>{number}</h1>
