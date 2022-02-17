@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@faker-js/faker": "^6.0.0-alpha.6"
+    "@faker-js/faker": "^6.0.0-alpha.6",
+    "react-markdown": "^8.0.0"
   }
 }

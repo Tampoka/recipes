@@ -3,18 +3,14 @@ import Fetch from "./Fetch";
 import DetailedUser from '../MultipleRequests/DetailedUser';
 import Search from '../Search/Search';
 
-function UserWithFetch() {
-    const [login, setLogin] = useState('PharaohKJ')
-    const onSearchHandler = (searchValue) => {
-        setLogin(searchValue)
-    }
+function UserWithFetch({login}) {
+    // const onSearchHandler = (searchValue) => {
+    //     setLogin(searchValue)
+    // }
     return (
         <>
-            <Search placeholder={'GitHub user name'} onSearch={onSearchHandler}/>
             <Fetch
-                // uri={`https://api.github.com/users/${login}`}
                 uri={login?`https://api.github.com/users/${login}`:''}
-                // renderSuccess={UserDetails}/>
                 renderSuccess={DetailedUser}/>
         </>
     )

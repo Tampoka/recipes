@@ -10,10 +10,6 @@ const DetailedUser = ({data: {avatar_url, location, login, name}}) => {
                 {name && <p>{name}</p>}
                 {location && <p>{location}</p>}
             </div>
-            <UserRepositories
-                login={login}
-                onSelect={repoName => console.log(`${repoName} selected`)}
-            />
         </div>
     );
 };

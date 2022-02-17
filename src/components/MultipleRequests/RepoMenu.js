@@ -1,17 +1,14 @@
 import React, {useEffect} from 'react';
 import {useIterator} from '../../customHooks/useIterator';
 
-const RepoMenu = ({repositories, onSelect = f => f}) => {
-    const [{name,description,homepage}, previous, next] = useIterator(repositories)
-    console.log(name)
-    // const [userRepo, previous, next] = useIterator(repositories)
-    // const {description,homepage}=userRepo
-    // const name=userRepo.name||''
+export const RepoMenu = ({repositories, selected,onSelect=f=>f}) => {
+    const [{name, description, homepage}, previous, next] = useIterator(repositories,
+        selected?repositories.findIndex(repo=>repo.name===selected):null)
 
     useEffect(() => {
-        if (!name) return
-        onSelect(name)
-    }, [name])
+        if (!name) return;
+        onSelect(name);
+    }, [name]);
 
     return (
         <div>
@@ -20,10 +17,11 @@ const RepoMenu = ({repositories, onSelect = f => f}) => {
                 <p>{name}</p>
                 <button onClick={next}>&gt;</button>
             </div>
-            <p>Description : {description}</p>
-            {homepage&&<p><a href={homepage} target="_blank" rel="noopener noreferrer">Check github pages</a></p>}
+            <div><p>Description : {description}</p>
+                {homepage && <p><a href={homepage} target="_blank" rel="noopener noreferrer">Check github pages</a></p>}
+            </div>
         </div>
     );
 };
 
-export default RepoMenu;
+
