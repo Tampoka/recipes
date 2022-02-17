@@ -8,10 +8,12 @@ function Fetch({
                    )
                }) {
     const {loading, data, error} = useFetch(uri)
-
+    console.log(error)
+    if(!uri) return <p>Waiting for userName to load data</p>
     if (loading) return loadingFallback
     if (error) return renderError(error)
     if (data) return renderSuccess({data})
+
 }
 
 export default Fetch

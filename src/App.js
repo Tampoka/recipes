@@ -6,7 +6,7 @@ import UserWithFetch from './components/FetchingUser/UserWithFetch';
 function App() {
     return (
         <div className="App">
-            <UserWithFetch login={"eveporcello"}/>
+            <UserWithFetch/>
         </div>
     )
 }
