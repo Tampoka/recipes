@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {useInput} from '../../customHooks/useInput';
 
-const Search = ({placeholder='',onSearch=f=>f}) => {
-    const [searchProps, resetSearch] = useInput('')
-    const onSearchHandler=()=>{
+const Search = ({placeholder = '', onSearch = f => f}) => {
+    const [searchProps] = useInput('')
+
+    const onSearchHandler = () => {
         onSearch(searchProps.value)
-        resetSearch()
     }
     return (
         <>
             <input {...searchProps}
-                type="text"
+                   type="text"
                    placeholder={placeholder}
                    required/>
             <button onClick={onSearchHandler}>Search</button>

@@ -8,13 +8,30 @@ import {RepoReadme} from './components/MultipleRequests/RepoReadme';
 
 function App() {
     const [login, setLogin] = useState('moonhighway')
-    const [repo, setRepo] = useState('learning-react')
+    const [repo, setRepo] = useState('css-layout')
+
+    const handleSearch=(login)=>{
+        if(login) return setLogin(login)
+        setLogin('')
+        setRepo('')
+    }
+
+    if(!login) return (
+        <Search placeholder={'GitHub user name'} onSearch={handleSearch}/>
+    )
     return (
         <div className="App">
-            <Search placeholder={'GitHub user name'} onSearch={setRepo}/>
-            <UserWithFetch login={login}/>
-            <UserRepositories login={login} selectedRepo={repo} onSelect={setRepo}/>
-            <RepoReadme login={login} repo={repo}/>
+            <Search placeholder={'GitHub user name'} onSearch={handleSearch}/>
+            {login && <UserWithFetch login={login}/>}
+            {login && (
+                <UserRepositories
+                    login={login}
+                    repo={repo}
+                    onSelect={setRepo}/>)}
+            {login && repo && (
+                <RepoReadme
+                    login={login}
+                    repo={repo}/>)}
         </div>
     )
 }

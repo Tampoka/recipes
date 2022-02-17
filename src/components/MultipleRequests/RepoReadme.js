@@ -1,28 +1,35 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {memo, useCallback, useEffect, useState} from 'react';
 import ReactMarkdown from "react-markdown";
+import {useMountedRef} from '../../customHooks/useMountedRef';
 
-export const RepoReadme = ({repo, login}) => {
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState()
-    const [markdown, setMarkdown] = useState('')
+export const RepoReadme = memo(({repo, login}) => {
+        console.log(repo)
+        const [loading, setLoading] = useState(false)
+        const [error, setError] = useState()
+        const [markdown, setMarkdown] = useState('')
 
-    const loadReadme = useCallback(async (login, repo) => {
-        setLoading(true)
-        const uri = `https://api.github.com/repos/${login}/${repo}/readme`
-        const {download_url} = await fetch(uri).then(res => res.json())
-        const markdown = await fetch(download_url).then(res => res.text())
-        setMarkdown(markdown)
-        setLoading(false)
-    }, [])
+        const mounted = useMountedRef()
 
-    useEffect(() => {
-        if (!repo || !login) return
-        loadReadme(login, repo).catch(setError)
-    }, [repo])
+        const loadReadme = useCallback(async (login, repo) => {
+            setLoading(true)
+            const uri = `https://api.github.com/repos/${login}/${repo}/readme`
+            const {download_url} = await fetch(uri).then(res => res.json())
+            const markdown = await fetch(download_url).then(res => res.text())
+            if(mounted.current){
+                setMarkdown(markdown)
+                setLoading(false)
+            }
+        }, [])
 
-    if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
-    if (loading) return <p>Loading...</p>
+        useEffect(() => {
+            console.log('repoReadme')
+            if (!repo || !login) return
+            loadReadme(login, repo).catch(setError)
+        }, [repo])
 
-    return <ReactMarkdown children={markdown}/>
-}
+        if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
+        if (loading) return <p>Loading...</p>
 
+        return <ReactMarkdown children={markdown}/>
+    }
+)
