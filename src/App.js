@@ -4,6 +4,8 @@ import Search from './components/Search/Search';
 import {client, query} from './graphql/testRequest';
 import {UserDetails} from './components/FetchingUser/UserDetails';
 import List from './components/RenderProps/List';
+import {SiteLayout} from './components/SiteLayout/SiteLayout';
+import {Callout} from './components/Callout/Callout';
 
 /*
 function App() {
@@ -37,7 +39,8 @@ function App() {
     )
 }*/
 
-export default function App() {
+//with graphql-request
+/*export default function App() {
     const [login, setLogin] = useState("moontahoe");
     const [userData, setUserData] = useState();
     console.log(userData)
@@ -60,5 +63,17 @@ export default function App() {
             />
         </div>
     );
+}*/
+
+export default function App(){
+    return (
+        <SiteLayout menu={<p>Menu</p>}>
+        <>
+            <Callout>Callout</Callout>
+            <h1>Contents</h1>
+            <p>This is the main part of the example layout</p>
+        </>
+        </SiteLayout>
+    )
 }
 
