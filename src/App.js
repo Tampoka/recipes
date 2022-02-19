@@ -1,8 +1,8 @@
 import './App.css';
-import {Suspense} from 'react';
-import {ErrorBoundary} from './components/ErrorBoundary/ErrorBoundary';
-import {createResource} from './components/Status/Status';
-import {GridLoader} from 'react-spinners';
+import { Suspense } from 'react';
+import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
+import { createResource } from './components/Status/Status';
+import { GridLoader } from 'react-spinners';
 
 // const Main = lazy(() => import('./components/Main/Main'))
 
@@ -116,23 +116,23 @@ export default function App() {
 
 
 const threeSecondsToGnar = new Promise(resolves =>
-    setTimeout(() => resolves({gnar: "gnarly!"}), 3000)
+  setTimeout(() => resolves({ gnar: 'gnarly!' }), 3000),
 );
 
 
 const resource = createResource(threeSecondsToGnar);
 
 function Gnar() {
-    const result = resource.read();
-    return <h1>Gnar: {result.gnar}</h1>;
+  const result = resource.read();
+  return <h1>Gnar: {result.gnar}</h1>;
 }
 
 export default function App() {
-    return (
-        <Suspense fallback={<GridLoader/>}>
-            <ErrorBoundary>
-                <Gnar/>
-            </ErrorBoundary>
-        </Suspense>
-    );
+  return (
+    <Suspense fallback={<GridLoader />}>
+      <ErrorBoundary>
+        <Gnar />
+      </ErrorBoundary>
+    </Suspense>
+  );
 }
