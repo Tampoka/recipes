@@ -28,4 +28,4 @@ export default function ColorProvider ({ children }) {
             {children}
         </ColorContext.Provider>
     );
-};
+}

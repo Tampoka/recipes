@@ -1,10 +1,11 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
-export default function TypingPhrase({children = ""}) {
-    const [posts, setPosts] = useState([]);
-    const [first, setFirst] = useState(true);
+// export default function TypingPhrase({children = ""}) {
+export default function TypingPhrase() {
+    // const [posts, setPosts] = useState([]);
+    // const [first, setFirst] = useState(true);
 
-    const addPost = post => setPosts(allPosts => [post, ...allPosts]);
+    // const addPost = post => setPosts(allPosts => [post, ...allPosts]);
 
     const [val, set] = useState("")
     const [phrase, setPhrase] = useState("example phrase")

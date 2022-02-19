@@ -1,11 +1,11 @@
-import {useEffect, useReducer, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 
-const reducer=(messages,incomingMessage)=>[messages,...incomingMessage]
+// const reducer=(messages,incomingMessage)=>[messages,...incomingMessage]
 
 export function useChatRoom(socket,messages=[]){
     const [status,setStatus]=useState(null)
-    const [messages,appendMessage]=useReducer(reducer,messages)
+    // const [messages,appendMessage]=useReducer(reducer,messages)
 
     const send=message=>socket.emit('message',message)
 

@@ -2,11 +2,12 @@ import React, {memo, useCallback, useEffect, useState} from 'react';
 import ReactMarkdown from "react-markdown";
 import {useMountedRef} from '../../customHooks/useMountedRef';
 
-export const RepoReadme = memo(({repo, login}) => {
+export const RepoReadme = memo(function RepoReadme({repo, login})  {
         console.log(repo)
         const [loading, setLoading] = useState(false)
         const [error, setError] = useState()
-        const [markdown, setMarkdown] = useState('')
+        // const [markdown, setMarkdown] = useState('')
+        const [, setMarkdown] = useState('')
 
         const mounted = useMountedRef()
 
@@ -15,7 +16,7 @@ export const RepoReadme = memo(({repo, login}) => {
             const uri = `https://api.github.com/repos/${login}/${repo}/readme`
             const {download_url} = await fetch(uri).then(res => res.json())
             const markdown = await fetch(download_url).then(res => res.text())
-            if(mounted.current){
+            if (mounted.current) {
                 setMarkdown(markdown)
                 setLoading(false)
             }
@@ -30,6 +31,7 @@ export const RepoReadme = memo(({repo, login}) => {
         if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
         if (loading) return <p>Loading...</p>
 
-        return <ReactMarkdown children={markdown}/>
+        return <ReactMarkdown> markdown</ReactMarkdown>
     }
 )
+

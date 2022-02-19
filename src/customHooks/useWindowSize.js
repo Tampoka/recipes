@@ -14,4 +14,4 @@ export function useWindowSize() {
     }, []);
 
     return [width, height];
-};
+}

@@ -1,6 +1,7 @@
 
 
-function List({data = [], renderEmpty, renderItem}) {
+// function List({data = [], renderEmpty, renderItem}) {
+function List({data = [], renderItem}) {
     /*    return !data.length
             ? renderEmpty
             : (<ul>

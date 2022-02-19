@@ -8,7 +8,9 @@ import ColorProvider from './customHooks/color-hooks';
 ReactDOM.render(
     <React.StrictMode>
         <ColorProvider>
-            <App/>
+            {/*<ErrorBoundary fallback={ErrorScreen}>*/}
+                <App/>
+            {/*</ErrorBoundary>*/}
         </ColorProvider>,
     </React.StrictMode>,
     document.getElementById('root')

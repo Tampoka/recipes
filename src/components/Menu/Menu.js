@@ -1,12 +1,10 @@
 import React from 'react';
 import {ErrorBoundary} from '../ErrorBoundary/ErrorBoundary';
 
-export const Callout = ({children}) => {
+export const Menu = () => {
     return (
         <ErrorBoundary>
-            <div className="callout">
-                {children}
-            </div>
+            <p style={{color:"white"}}>TODO: Build Menu</p>
         </ErrorBoundary>
     );
 };

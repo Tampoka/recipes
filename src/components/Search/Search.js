@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import {useInput} from '../../customHooks/useInput';
 
 const Search = ({placeholder = '', onSearch = f => f}) => {

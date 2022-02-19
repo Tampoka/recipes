@@ -1,6 +1,6 @@
-import React, {memo} from 'react';
+import {memo} from 'react';
 
-const Cat = memo(({name, meow = f => f}) => {
+export const Cat = memo(function Cat({name, meow = f => f}) {
 
     // const RenderCatOnce = memo(Cat, () => true);
     // const AlwaysRenderCat = memo(Cat, () => false);
@@ -10,6 +10,6 @@ const Cat = memo(({name, meow = f => f}) => {
         <>
             <p onClick={() => meow(name)}>{name}</p>
         </>)
-},(prevProps, nextProps) => prevProps.name === nextProps.name)
+}, (prevProps,
+    nextProps) => prevProps.name === nextProps.name)
 //rerender only if name changed (even without useCallback on meow)
-export default Cat;

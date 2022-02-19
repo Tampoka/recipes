@@ -1,5 +1,3 @@
-import React from 'react';
-import UserRepositories from './UserRepositories';
 
 const DetailedUser = ({data: {avatar_url, location, login, name}}) => {
     return (

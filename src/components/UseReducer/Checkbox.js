@@ -1,9 +1,9 @@
-import React, {useEffect, useReducer, useState} from "react";
+import React, {useReducer} from "react";
 
 export default function Checkbox() {
     // const [checked, setChecked] = useState(false);
     const [checked, setChecked] = useReducer(checked=>!checked,false,checked=>checked);
-    const [first, setFirst] = useState(true)
+    // const [first, setFirst] = useState(true)
     // const [number, setNumber]=useReducer((number,newNumber)=>number+newNumber,10,n=>n)
     const [number, setNumber]=useReducer((number,newNumber)=>number+newNumber,10,n=>n*2)
 
@@ -29,5 +29,5 @@ export default function Checkbox() {
             <h1 onClick={() => setNumber(30)}>{number}</h1>
         </>
     );
-};
+}
 

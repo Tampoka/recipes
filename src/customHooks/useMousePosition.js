@@ -1,5 +1,6 @@
-import {useLayoutEffect, useState} from 'react';
+// import {useLayoutEffect, useState} from 'react';
 
+/*
 function useMousePosition (){
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
@@ -12,4 +13,4 @@ function useMousePosition (){
         return () => window.removeEventListener("mousemove", setPosition);
     }, []);
     return [x, y];
-};
+}*/

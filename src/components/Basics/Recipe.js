@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import IngredientsList from "./IngredientsList";
 import Instructions from "./Instructions";
 import StarRating from './StarRating';

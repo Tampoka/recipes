@@ -1,11 +1,10 @@
 import './App.css';
-import {useEffect, useState} from 'react';
-import Search from './components/Search/Search';
-import {client, query} from './graphql/testRequest';
-import {UserDetails} from './components/FetchingUser/UserDetails';
-import List from './components/RenderProps/List';
-import {SiteLayout} from './components/SiteLayout/SiteLayout';
-import {Callout} from './components/Callout/Callout';
+import {Suspense} from 'react';
+import {ErrorBoundary} from './components/ErrorBoundary/ErrorBoundary';
+import {createResource} from './components/Status/Status';
+import {GridLoader} from 'react-spinners';
+
+// const Main = lazy(() => import('./components/Main/Main'))
 
 /*
 function App() {
@@ -65,15 +64,75 @@ function App() {
     );
 }*/
 
-export default function App(){
+// test ErrorBoundary
+/*export default function App() {
     return (
-        <SiteLayout menu={<p>Menu</p>}>
-        <>
-            <Callout>Callout</Callout>
-            <h1>Contents</h1>
-            <p>This is the main part of the example layout</p>
-        </>
+        <SiteLayout menu={
+            <ErrorBoundary>
+                <p>Site Layout Menu</p>
+                <BreakThings/>
+            </ErrorBoundary>
+        }>
+            <>
+                <ErrorBoundary fallback={ErrorScreen}>
+                    <Callout>Callout<BreakThings/></Callout>
+                </ErrorBoundary>
+                <ErrorBoundary>
+                    <h1>Contents</h1>
+                    <p>This is the main part of the example layout</p>
+                </ErrorBoundary>
+            </>
         </SiteLayout>
     )
+}*/
+
+//with agreement and Main
+/*export default function App() {
+    const [agree, setAgree] = useState(false)
+
+    if (!agree)
+        return <Agreement onAgree={() => setAgree(true)}/>
+
+    return (
+        <div className="App">
+            <ErrorBoundary>
+                <Suspense fallback={<ClimbingBoxLoader/>}>
+                    <Main/>
+                </Suspense></ErrorBoundary>
+        </div>
+    )
+}*/
+
+
+/*
+export default function App() {
+
+    return (
+        <Suspense fallback={<GridLoader/>} ><ErrorBoundary>
+            <Status/>
+        </ErrorBoundary></Suspense>
+    )
+}*/
+
+
+const threeSecondsToGnar = new Promise(resolves =>
+    setTimeout(() => resolves({gnar: "gnarly!"}), 3000)
+);
+
+
+const resource = createResource(threeSecondsToGnar);
+
+function Gnar() {
+    const result = resource.read();
+    return <h1>Gnar: {result.gnar}</h1>;
 }
 
+export default function App() {
+    return (
+        <Suspense fallback={<GridLoader/>}>
+            <ErrorBoundary>
+                <Gnar/>
+            </ErrorBoundary>
+        </Suspense>
+    );
+}

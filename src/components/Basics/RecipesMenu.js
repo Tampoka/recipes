@@ -1,7 +1,7 @@
 import React from "react";
 import Recipe from "./Recipe";
 
-function Menu({ recipes }) {
+function RecipesMenu({ recipes }) {
     return (
         <article>
             <header>
@@ -15,4 +15,4 @@ function Menu({ recipes }) {
         </article>
     );
 }
-export default Menu;
+export default RecipesMenu;

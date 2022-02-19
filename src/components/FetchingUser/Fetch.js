@@ -1,4 +1,4 @@
-const {useFetch} = require('../../customHooks/useFetch');
+import {useFetch} from '../../customHooks/useFetch';
 
 function Fetch({
                    uri,
