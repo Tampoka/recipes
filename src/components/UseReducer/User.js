@@ -1,38 +1,44 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from 'react';
 
 const User = () => {
-    const firstUser = {
-        id: "0391-3233-3201",
-        firstName: "Bill",
-        lastName: "Wilson",
-        city: "Missoula",
-        state: "Montana",
-        email: "bwilson@mtnwilsons.com",
-        admin: false
-    }
-    // const [user, setUser] = useState(firstUser)
-    const [user, setUser] = useReducer((user, newDetails) => ({...user, ...newDetails}), firstUser, user => user)
+  const firstUser = {
+    id: '0391-3233-3201',
+    firstName: 'Bill',
+    lastName: 'Wilson',
+    city: 'Missoula',
+    state: 'Montana',
+    email: 'bwilson@mtnwilsons.com',
+    admin: false,
+  };
+  // const [user, setUser] = useState(firstUser)
+  const [user, setUser] = useReducer(
+    (user, newDetails) => ({ ...user, ...newDetails }),
+    firstUser,
+    (user) => user,
+  );
 
-    /*  const setAdmin=()=>{
-          setUser({...user, admin: true})
-      }*/
+  /*  const setAdmin=()=>{
+        setUser({...user, admin: true})
+    }*/
 
-    const setAdmin = () => {
-        setUser({admin: true})
-    }
+  const setAdmin = () => {
+    setUser({ admin: true });
+  };
 
-    return (
-        <div>
-            <h1>
-                {user.firstName} {user.lastName} - {user.admin ? "Admin" : "User"}
-            </h1>
-            <p>Email: {user.email}</p>
-            <p>
-                Location: {user.city}, {user.state}
-            </p>
-            <button onClick={setAdmin} disabled={user.admin}>{!user.admin ? 'Make Admin' : 'Already Admin'}</button>
-        </div>
-    );
+  return (
+    <div>
+      <h1>
+        {user.firstName} {user.lastName} - {user.admin ? 'Admin' : 'User'}
+      </h1>
+      <p>Email: {user.email}</p>
+      <p>
+        Location: {user.city}, {user.state}
+      </p>
+      <button onClick={setAdmin} disabled={user.admin}>
+        {!user.admin ? 'Make Admin' : 'Already Admin'}
+      </button>
+    </div>
+  );
 };
 
 export default User;
@@ -57,5 +63,3 @@ So this is the time for us to introduce lazy initialization.
 }
 The init() function is executed exactly only one time when the useReducer is first called.
     Actually useEffect() hook can achieve a similar result. But lazy initialization is still the most direct solution.*/
-
-

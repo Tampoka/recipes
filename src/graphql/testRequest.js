@@ -1,6 +1,6 @@
-import {GraphQLClient} from "graphql-request";
+import { GraphQLClient } from 'graphql-request';
 
- export const query = `
+export const query = `
 query findRepos($login:String!) {
 user(login:$login) {
 login
@@ -16,14 +16,11 @@ name
 }
 }
 `;
-export const client = new GraphQLClient(
-    "https://api.github.com/graphql",
-    {
-        headers: {
-            Authorization: `Bearer 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`
-        }
-    }
-);
+export const client = new GraphQLClient('https://api.github.com/graphql', {
+  headers: {
+    // Authorization: `Bearer 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`,
+  },
+});
 // client
 //     .request(query, {login: "moontahoe"})
 //     .then(results => JSON.stringify(results, null, 2))

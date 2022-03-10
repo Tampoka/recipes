@@ -1,18 +1,19 @@
-import React from "react";
-import Fetch from "./Fetch";
+import React from 'react';
+import Fetch from './Fetch';
 import DetailedUser from '../MultipleRequests/DetailedUser';
 
-function UserWithFetch({login}) {
-    // const onSearchHandler = (searchValue) => {
-    //     setLogin(searchValue)
-    // }
-    return (
-        <>
-            <Fetch
-                uri={login?`https://api.github.com/users/${login}`:''}
-                renderSuccess={DetailedUser}/>
-        </>
-    )
+function UserWithFetch({ login }) {
+  // const onSearchHandler = (searchValue) => {
+  //     setLogin(searchValue)
+  // }
+  return (
+    <>
+      <Fetch
+        uri={login ? `https://api.github.com/users/${login}` : ''}
+        renderSuccess={DetailedUser}
+      />
+    </>
+  );
 }
 
 //alternative way of calling Fetch
@@ -32,4 +33,4 @@ function UserWithFetch({login}) {
     );
 }*/
 
-export default UserWithFetch
+export default UserWithFetch;

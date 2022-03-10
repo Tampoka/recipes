@@ -1,5 +1,3 @@
-// import {useLayoutEffect, useState} from 'react';
-
 /*
 function useMousePosition (){
     const [x, setX] = useState(0);

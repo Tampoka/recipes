@@ -4,21 +4,16 @@
 // бавляются в DOM.
 // 4. Вызов useEffect.
 
-import React, {useEffect, useLayoutEffect} from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 
 const Layout = () => {
-    useEffect(()=>{
-        console.log("useEffect")
-    })
-    useLayoutEffect(()=>{
-        console.log("useLayoutEffect")
-
-    })
-    return (
-        <div>
-
-        </div>
-    );
+  useEffect(() => {
+    console.log('useEffect');
+  });
+  useLayoutEffect(() => {
+    console.log('useLayoutEffect');
+  });
+  return <div></div>;
 };
 
 export default Layout;
