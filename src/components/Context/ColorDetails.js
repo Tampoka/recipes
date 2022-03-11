@@ -6,11 +6,17 @@ export function ColorDetails() {
   let { colors } = useColors();
 
   let foundColor = colors.find((color) => color.id === id);
-  const { title, rating } = foundColor;
   return (
     <div>
-      <h1>{title}</h1>
-      <h3>Rating: {rating}</h3>
+      <div
+        style={{
+          backgroundColor: foundColor.color,
+          height: 100,
+          width: 100,
+        }}
+      ></div>
+      <h1>{foundColor.title}</h1>
+      <h3>Rating: {foundColor.rating}</h3>
     </div>
   );
 }
