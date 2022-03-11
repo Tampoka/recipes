@@ -7,7 +7,6 @@ import * as fs from 'fs';
 const app = express();
 app.use(express.static('./build'));
 
-// eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 4000;
 
 app.get('/*', (req, res) => {
