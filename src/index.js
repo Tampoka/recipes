@@ -115,7 +115,8 @@ render(
 );
 */
 
-ReactDOM.render(
+// ReactDOM.render(
+ReactDOM.hydrate(
   <Menu recipes={data} title="Delicious Recipes" />,
   document.getElementById('root'),
 );
